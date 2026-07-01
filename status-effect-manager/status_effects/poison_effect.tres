@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://bwv33l0kcdgiv"]
+
+[ext_resource type="Script" uid="uid://codwjjdg2vdx8" path="res://status_effects/status_effect.gd" id="1_crvlf"]
+
+[resource]
+script = ExtResource("1_crvlf")
+effect_name = "Poison"
+description = "Receive Poison damage."
+duration = 8.0
+tags = Array[String](["poison", "dot"])
+metadata/_custom_type_script = "uid://codwjjdg2vdx8"

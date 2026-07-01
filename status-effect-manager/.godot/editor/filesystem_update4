@@ -1,0 +1,8 @@
+res://status_effects/status_effect.gd
+res://status_effects/status_effect_manager.gd
+res://player.tscn
+res://status_effects/poison.tres
+res://TestStatusEffects.tscn
+res://status_effects/poison_effect.tres
+res://character.gd
+res://Character.gd
