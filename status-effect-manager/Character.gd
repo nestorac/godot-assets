@@ -12,51 +12,36 @@ var max_health: int = 100
 
 
 func _ready() -> void:
-	# Connect button from code (more reliable)
+	print("=== Game Started ===")
+	
 	if apply_button:
-		apply_button.pressed.connect(apply_poison)
-	
-	# Connect status manager signals
-	status_manager.effect_applied.connect(_on_effect_applied)
-	status_manager.effect_removed.connect(_on_effect_removed)
-	status_manager.effect_event_processed.connect(_on_effect_event)
-	
-	update_ui()
-
-
-func apply_poison() -> void:
-	if poison_effect:
-		status_manager.apply_effect(poison_effect)
-		print("Poison applied!")           # Debug message
+		apply_button.mouse_filter = Control.MOUSE_FILTER_STOP
+		apply_button.pressed.connect(apply_poison_pressed)
+		print("Button connected successfully from code")
 	else:
+		print("ERROR: ApplyPoisonButton not found!")
+	
+	update_ui()
+
+
+func apply_poison_pressed() -> void:
+	print(">>> BUTTON PRESSED <<<")
+	
+	if poison_effect == null:
 		print("ERROR: poison_effect is not assigned in the Inspector!")
-
-
-func _on_effect_applied(instance: Dictionary) -> void:
-	print("Effect applied: ", instance.effect.effect_name)
+		return
+	
+	status_manager.apply_effect(poison_effect)
+	print("Poison applied successfully!")
 	update_ui()
-
-
-func _on_effect_removed(instance: Dictionary) -> void:
-	print("Effect removed: ", instance.effect.effect_name)
-	update_ui()
-
-
-func _on_effect_event(instance: Dictionary, event: String) -> void:
-	if event == "tick":
-		if "poison" in instance.effect.tags:
-			var damage = 5 * instance.stacks
-			health = max(0, health - damage)
-			print("Poison tick! Damage:", damage, " | Health:", health)
-			update_ui()
 
 
 func update_ui() -> void:
-	var text := "Health: %d/%d\n\nActive Effects:\n" % [health, max_health]
+	var text := "Health: %d / %d\n\nActive Effects:\n" % [health, max_health]
 	
 	for instance in status_manager.get_active_effects():
 		var effect = instance.effect
-		var dur = "Permanent" if effect.duration < 0 else "%.1f sec" % instance.remaining_duration
-		text += "- %s (x%d) - %s\n" % [effect.effect_name, instance.stacks, dur]
+		var duration_text = "Permanent" if effect.duration < 0 else "%.1f sec" % instance.remaining_duration
+		text += "- %s (x%d) - %s\n" % [effect.effect_name, instance.stacks, duration_text]
 	
 	active_effects_label.text = text

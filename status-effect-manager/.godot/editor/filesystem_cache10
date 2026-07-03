@@ -1,9 +1,0 @@
-78098b89c88a74ebe8c20117b8754620
-::res://::1782921463
-icon.svg::CompressedTexture2D::6514194978447925818::1782905255::1782905264::1::::<><><>0<>0<>f3f02bece4cb7dbd0c9bbef19e116755<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-Character.gd::GDScript::1752669879534454505::1782921234::0::1::::<>Node<><>0<>0<><>::
-TestStatusEffects.tscn::PackedScene::4517004184417240888::1782921591::0::1::::<><><>0<>0<><>::uid://y8ahmw8lkiqj::::res://character.gd<>uid://ca4v6h15c6o6b::::res://status_effects/status_effect_manager.gd
-::res://status_effects/::1782921128
-poison_effect.tres::Resource/StatusEffect::3975677871425980917::1782921128::0::1::::<><><>0<>0<><>::uid://codwjjdg2vdx8::::res://status_effects/status_effect.gd
-status_effect.gd::GDScript::5763030635220928915::1782919864::0::1::::StatusEffect<>Resource<><>0<>0<><>::
-status_effect_manager.gd::GDScript::4834039147908420015::1782919874::0::1::::StatusEffectManager<>Node<><>0<>0<><>::

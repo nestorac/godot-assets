@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://y8ahmw8lkiqj" path="res://Character.gd" id="1_ha2cn"]
 [ext_resource type="Script" uid="uid://ca4v6h15c6o6b" path="res://status_effects/status_effect_manager.gd" id="2_00li4"]
+[ext_resource type="Resource" uid="uid://bwv33l0kcdgiv" path="res://status_effects/poison_effect.tres" id="2_y1pry"]
 
 [node name="TestStatusEffects" type="Node2D" unique_id=2075915525]
+position = Vector2(248, 157)
 
 [node name="Character" type="Node" parent="." unique_id=1631246625]
 script = ExtResource("1_ha2cn")
+poison_effect = ExtResource("2_y1pry")
 
 [node name="StatusEffectManager" type="Node" parent="Character" unique_id=696870464]
 script = ExtResource("2_00li4")
@@ -21,16 +24,18 @@ offset_bottom = 159.0
 text = "Test"
 
 [node name="ApplyPoisonButton" type="Button" parent="UI" unique_id=53681538]
-anchors_preset = -1
-anchor_left = 0.347
-anchor_top = 0.30200002
-anchor_right = 0.61700004
-anchor_bottom = 0.39000002
-offset_left = 2.2559814
-offset_top = -0.6960144
-offset_right = 2.2159424
-offset_bottom = -0.7200165
-text = "press!!"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -22.384003
+offset_right = 67.5
+offset_bottom = 22.384033
+grow_horizontal = 2
+grow_vertical = 2
+text = "button pressed!!"
 
 [node name="Timer" type="Timer" parent="." unique_id=450557181]
 autostart = true
