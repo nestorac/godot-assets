@@ -6,6 +6,7 @@ extends Node
 @onready var apply_button: Button = $"../UI/ApplyPoisonButton"
 
 @export var poison_effect: StatusEffect
+@export var ice_effect: StatusEffect
 
 var health: int = 100
 var max_health: int = 100

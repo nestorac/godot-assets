@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cdkh6j2uo51bv"]
+
+[ext_resource type="Texture2D" uid="uid://cout8iokpd5hd" path="res://status_effects/icons/ice.svg" id="1_7tkc6"]
+[ext_resource type="Script" uid="uid://codwjjdg2vdx8" path="res://status_effects/status_effect.gd" id="1_r3qde"]
+
+[resource]
+script = ExtResource("1_r3qde")
+effect_name = "Ice"
+description = "Receive Ice damage."
+icon = ExtResource("1_7tkc6")
+duration = -1.0
+stackable = true
+max_stacks = -1
+tags = Array[String](["poison", "dot"])
+metadata/_custom_type_script = "uid://codwjjdg2vdx8"

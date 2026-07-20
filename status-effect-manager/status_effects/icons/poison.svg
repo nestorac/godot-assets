@@ -1,0 +1,32 @@
+<svg height="64" width="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  
+  <circle stroke-width="3" stroke="#0F1C14" fill="#1A2A1F" r="30" cy="32" cx="32"></circle>
+  
+  
+  
+  <rect stroke-width="3" stroke="#1A2A1F" fill="#4ADE80" ry="8" rx="4" height="28" width="18" y="18" x="23"></rect>
+  
+  
+  <rect stroke-width="3" stroke="#1A2A1F" fill="#4ADE80" rx="1" height="7" width="10" y="13" x="27"></rect>
+  
+  
+  <rect stroke-width="2" stroke="#0F1C14" fill="#1A2A1F" rx="1" height="4" width="7" y="10" x="28.5"></rect>
+  
+  
+  
+  <ellipse fill="#1A2A1F" ry="7" rx="6" cy="31" cx="32"></ellipse>
+  
+  
+  <circle fill="#4ADE80" r="1.2" cy="29" cx="28.5"></circle>
+  <circle fill="#4ADE80" r="1.2" cy="29" cx="35.5"></circle>
+  
+  
+  <path stroke-width="1.2" stroke="#4ADE80" fill="none" d="M27.5 34 Q32 36.5 36.5 34"></path>
+  
+  
+  <circle fill="#22C55E" r="2.5" cy="48" cx="19"></circle>
+  <circle fill="#22C55E" r="2" cy="50" cx="45"></circle>
+  
+  
+  <path stroke-width="2.5" stroke="#1A2A1F" fill="none" d="M20 42 L44 42"></path>
+</svg>

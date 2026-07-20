@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://y8ahmw8lkiqj" path="res://Character.gd" id="1_ha2cn"]
 [ext_resource type="Script" uid="uid://ca4v6h15c6o6b" path="res://status_effects/status_effect_manager.gd" id="2_00li4"]
 [ext_resource type="Resource" uid="uid://bwv33l0kcdgiv" path="res://status_effects/poison_effect.tres" id="2_y1pry"]
+[ext_resource type="Resource" uid="uid://cdkh6j2uo51bv" path="res://status_effects/ice_effect.tres" id="3_y1pry"]
 
 [node name="TestStatusEffects" type="Node2D" unique_id=2075915525]
-position = Vector2(248, 157)
+position = Vector2(392, 154)
 
 [node name="Character" type="Node" parent="." unique_id=1631246625]
 script = ExtResource("1_ha2cn")
 poison_effect = ExtResource("2_y1pry")
+ice_effect = ExtResource("3_y1pry")
 
 [node name="StatusEffectManager" type="Node" parent="Character" unique_id=696870464]
 script = ExtResource("2_00li4")
