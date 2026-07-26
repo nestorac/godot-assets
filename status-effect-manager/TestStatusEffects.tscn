@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://b5mcnthkmmhwq"]
 
+[ext_resource type="Script" uid="uid://bd5yobkaoatsv" path="res://test_status_effects.gd" id="1_1uj6j"]
 [ext_resource type="Script" uid="uid://y8ahmw8lkiqj" path="res://Character.gd" id="1_ha2cn"]
 [ext_resource type="Script" uid="uid://ca4v6h15c6o6b" path="res://status_effects/status_effect_manager.gd" id="2_00li4"]
 [ext_resource type="Resource" uid="uid://bwv33l0kcdgiv" path="res://status_effects/poison_effect.tres" id="2_y1pry"]
 [ext_resource type="Resource" uid="uid://cdkh6j2uo51bv" path="res://status_effects/ice_effect.tres" id="3_y1pry"]
+[ext_resource type="Texture2D" uid="uid://d0mnigx68eme4" path="res://status_effects/icons/poison.svg" id="5_m1mte"]
+[ext_resource type="Script" uid="uid://b3qidotiri6rf" path="res://poison.gd" id="6_5ih8j"]
+[ext_resource type="Texture2D" uid="uid://cout8iokpd5hd" path="res://status_effects/icons/ice.svg" id="7_xsven"]
+[ext_resource type="Script" uid="uid://c83u1dr4ai08m" path="res://ice.gd" id="8_iad3b"]
 
 [node name="TestStatusEffects" type="Node2D" unique_id=2075915525]
 position = Vector2(392, 154)
+script = ExtResource("1_1uj6j")
 
 [node name="Character" type="Node" parent="." unique_id=1631246625]
 script = ExtResource("1_ha2cn")
@@ -31,13 +37,44 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -67.5
-offset_top = -22.384003
-offset_right = 67.5
-offset_bottom = 22.384033
+offset_left = -211.0
+offset_top = -31.0
+offset_right = -76.0
+offset_bottom = 13.768036
 grow_horizontal = 2
 grow_vertical = 2
-text = "button pressed!!"
+text = "poison!!"
+
+[node name="ApplyIceButton" type="Button" parent="UI" unique_id=927576670]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -30.0
+offset_right = 90.0
+offset_bottom = 14.768036
+grow_horizontal = 2
+grow_vertical = 2
+text = "ice!!"
+
+[node name="TextureRect" type="TextureRect" parent="UI" unique_id=835415157]
+offset_left = 344.0
+offset_top = 517.0
+offset_right = 384.0
+offset_bottom = 557.0
+
+[node name="Poison" type="Sprite2D" parent="UI" unique_id=1935869517]
+position = Vector2(522, 504)
+texture = ExtResource("5_m1mte")
+script = ExtResource("6_5ih8j")
+
+[node name="Ice" type="Sprite2D" parent="UI" unique_id=1983935754]
+position = Vector2(632, 513)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_xsven")
+script = ExtResource("8_iad3b")
 
 [node name="Timer" type="Timer" parent="." unique_id=450557181]
 autostart = true
