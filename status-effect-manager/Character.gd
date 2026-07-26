@@ -31,10 +31,13 @@ func _ready() -> void:
 		print("Button connected successfully from code")
 	else:
 		print("ERROR: ApplyPoisonButton not found!")
-	apply_ice_pressed
-	apply_poison_pressed
+#	apply_ice_pressed
+#	apply_poison_pressed
 	update_ui()
 
+func _on_timer_timeout():
+	$"../UI/Poison".visible = false
+	print("Timer timeout!")
 
 func apply_poison_pressed() -> void:
 	print(">>> BUTTON PRESSED <<<")
@@ -42,7 +45,8 @@ func apply_poison_pressed() -> void:
 	if poison_effect == null:
 		print("ERROR: poison_effect is not assigned in the Inspector!")
 		return
-	
+#	apply_ice_pressed
+#	apply_poison_pressed
 	status_manager.apply_effect(poison_effect)
 	poisoned.connect($"../UI/Poison"._on_poisoned)
 	poisoned.emit()
