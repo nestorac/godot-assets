@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://bwv33l0kcdgiv"]
 
-[ext_resource type="Script" uid="uid://codwjjdg2vdx8" path="res://status_effects/status_effect.gd" id="1_crvlf"]
+[ext_resource type="Script" uid="uid://codwjjdg2vdx8" path="res://status_effect.gd" id="1_crvlf"]
 [ext_resource type="Texture2D" uid="uid://d0mnigx68eme4" path="res://status_effects/icons/poison.svg" id="1_prqr8"]
 
 [resource]

@@ -16,6 +16,10 @@ var max_health: int = 100
 signal poisoned
 signal iced
 
+# En tiempo real
+func _process(delta: float) -> void:
+	status_manager.process_tick(delta)
+
 func _ready() -> void:
 	print("=== Game Started ===")
 	
@@ -51,7 +55,7 @@ func apply_poison_pressed() -> void:
 	status_manager.apply_effect(poison_effect)
 	poisoned.connect($"../UI/Poison"._on_poisoned)
 	poisoned.emit()
-	timer.start(8.0)
+#	timer.start(8.0)
 	print("Poison applied successfully!")
 	update_ui()
 

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cdkh6j2uo51bv"]
 
 [ext_resource type="Texture2D" uid="uid://cout8iokpd5hd" path="res://status_effects/icons/ice.svg" id="1_7tkc6"]
-[ext_resource type="Script" uid="uid://codwjjdg2vdx8" path="res://status_effects/status_effect.gd" id="1_r3qde"]
+[ext_resource type="Script" uid="uid://codwjjdg2vdx8" path="res://status_effect.gd" id="1_r3qde"]
 
 [resource]
 script = ExtResource("1_r3qde")
