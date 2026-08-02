@@ -5,6 +5,7 @@ extends Node
 @onready var active_effects_label: Label = $"../UI/ActiveEffectsLabel"
 @onready var apply_button: Button = $"../UI/ApplyPoisonButton"
 @onready var ice_apply_button: Button = $"../UI/ApplyIceButton"
+@onready var timer: Timer = $"../Timer"
 
 @export var poison_effect: StatusEffect
 @export var ice_effect: StatusEffect
@@ -50,6 +51,7 @@ func apply_poison_pressed() -> void:
 	status_manager.apply_effect(poison_effect)
 	poisoned.connect($"../UI/Poison"._on_poisoned)
 	poisoned.emit()
+	timer.start(8.0)
 	print("Poison applied successfully!")
 	update_ui()
 
