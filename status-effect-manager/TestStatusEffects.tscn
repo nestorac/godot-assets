@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bd5yobkaoatsv" path="res://test_status_effects.gd" id="1_1uj6j"]
 [ext_resource type="Script" uid="uid://y8ahmw8lkiqj" path="res://Character.gd" id="1_ha2cn"]
-[ext_resource type="Script" uid="uid://ca4v6h15c6o6b" path="res://status_effect_manager.gd" id="2_00li4"]
+[ext_resource type="Script" uid="uid://ca4v6h15c6o6b" path="res://status_effects/status_effect_manager.gd" id="2_00li4"]
 [ext_resource type="Resource" uid="uid://bwv33l0kcdgiv" path="res://status_effects/poison_effect.tres" id="2_y1pry"]
 [ext_resource type="Resource" uid="uid://cdkh6j2uo51bv" path="res://status_effects/ice_effect.tres" id="3_y1pry"]
 [ext_resource type="Texture2D" uid="uid://d0mnigx68eme4" path="res://status_effects/icons/poison.svg" id="5_m1mte"]
-[ext_resource type="Script" uid="uid://di8yre2k6e4ls" path="res://status_effects/poison.gd" id="6_5ih8j"]
+[ext_resource type="Script" uid="uid://di8yre2k6e4ls" path="res://poison.gd" id="6_5ih8j"]
 [ext_resource type="Texture2D" uid="uid://cout8iokpd5hd" path="res://status_effects/icons/ice.svg" id="7_xsven"]
-[ext_resource type="Script" uid="uid://b0g1suyv1q6au" path="res://status_effects/ice.gd" id="8_iad3b"]
+[ext_resource type="Script" uid="uid://b0g1suyv1q6au" path="res://ice.gd" id="8_iad3b"]
+[ext_resource type="Script" uid="uid://0wifx67nolej" path="res://fuzzy.gd" id="10_6ina1"]
+[ext_resource type="Texture2D" uid="uid://ct5aysdpruvw7" path="res://status_effects/icons/fuzzy.svg" id="10_tu7iv"]
 
 [node name="TestStatusEffects" type="Node2D" unique_id=2075915525]
 script = ExtResource("1_1uj6j")
@@ -45,6 +47,21 @@ grow_vertical = 2
 text = "poison!!"
 icon = ExtResource("5_m1mte")
 
+[node name="ApplyFuzzyButton" type="Button" parent="UI" unique_id=504347788]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = -41.0
+offset_right = 261.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "fuzzy!!"
+icon = ExtResource("10_tu7iv")
+
 [node name="ApplyIceButton" type="Button" parent="UI" unique_id=927576670]
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,6 +92,11 @@ script = ExtResource("6_5ih8j")
 position = Vector2(632, 513)
 texture = ExtResource("7_xsven")
 script = ExtResource("8_iad3b")
+
+[node name="Fuzzy" type="Sprite2D" parent="UI" unique_id=3923237]
+position = Vector2(743, 514)
+texture = ExtResource("10_tu7iv")
+script = ExtResource("10_6ina1")
 
 [node name="Timer" type="Timer" parent="." unique_id=450557181]
 

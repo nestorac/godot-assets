@@ -3,18 +3,21 @@ extends Node
 
 @onready var status_manager: StatusEffectManager = $StatusEffectManager
 @onready var active_effects_label: Label = $"../UI/ActiveEffectsLabel"
-@onready var apply_button: Button = $"../UI/ApplyPoisonButton"
-@onready var ice_apply_button: Button = $"../UI/ApplyIceButton"
+@onready var apply_poison_button: Button = $"../UI/ApplyPoisonButton"
+@onready var apply_ice_button: Button = $"../UI/ApplyIceButton"
+@onready var apply_fuzzy_button: Button = $"../UI/ApplyFuzzyButton"
 @onready var timer: Timer = $"../Timer"
+
+@onready var poison: Sprite2D = $"../UI/Poison"
+@onready var ice: Sprite2D = $"../UI/Ice"
+@onready var fuzzy: Sprite2D = $"../UI/Fuzzy"
 
 @export var poison_effect: StatusEffect
 @export var ice_effect: StatusEffect
+@export var fuzzy_effect: StatusEffect
 
 var health: int = 100
 var max_health: int = 100
-
-signal poisoned
-signal iced
 
 # En tiempo real
 func _process(delta: float) -> void:
@@ -23,53 +26,35 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	print("=== Game Started ===")
 	
-	if apply_button:
-		apply_button.mouse_filter = Control.MOUSE_FILTER_STOP
-		apply_button.pressed.connect(apply_poison_pressed)
-		print("Button connected successfully from code")
-	else:
-		print("ERROR: ApplyPoisonButton not found!")
-		
-	if ice_apply_button:
-		ice_apply_button.mouse_filter = Control.MOUSE_FILTER_STOP
-		ice_apply_button.pressed.connect(apply_ice_pressed)
-		print("Button connected successfully from code")
-	else:
-		print("ERROR: ApplyPoisonButton not found!")
-#	apply_ice_pressed
-#	apply_poison_pressed
+	# En _ready o al conectar señales
+	apply_poison_button.pressed.connect(func(): apply_effect_pressed(poison_effect))
+	apply_ice_button.pressed.connect(func(): apply_effect_pressed(ice_effect))
+	apply_fuzzy_button.pressed.connect(func(): apply_effect_pressed(fuzzy_effect))
+	
 	update_ui()
 
 func _on_timer_timeout():
 	$"../UI/Poison".visible = false
 	print("Timer timeout!")
 
-func apply_poison_pressed() -> void:
-	print(">>> BUTTON PRESSED <<<")
-	
-	if poison_effect == null:
-		print("ERROR: poison_effect is not assigned in the Inspector!")
+func apply_effect_pressed(effect: StatusEffect) -> void:
+	if effect == null:
+		print("ERROR: effect is not assigned")
 		return
-#	apply_ice_pressed
-#	apply_poison_pressed
-	status_manager.apply_effect(poison_effect)
-	poisoned.connect($"../UI/Poison"._on_poisoned)
-	poisoned.emit()
-#	timer.start(8.0)
-	print("Poison applied successfully!")
-	update_ui()
-
-func apply_ice_pressed() -> void:
-	print(">>> BUTTON PRESSED <<<")
-	
-	if ice_effect == null:
-		print("ERROR: ice_effect is not assigned in the Inspector!")
+	elif effect == poison_effect:
+		print("Poison effect applied!")
+		poison.visible = true
+		return
+	elif effect == ice_effect:
+		print("Ice effect applied!")
+		ice.visible = true
+		return
+	elif effect == poison_effect:
+		print("Fuzzy effect applied!")
+		fuzzy.visible = true
 		return
 	
-	status_manager.apply_effect(ice_effect)
-	poisoned.connect($"../UI/Ice"._on_iced)
-	poisoned.emit()
-	print("Ice applied successfully!")
+	status_manager.apply_effect(effect)
 	update_ui()
 
 func update_ui() -> void:

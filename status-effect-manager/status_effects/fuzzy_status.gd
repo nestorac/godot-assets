@@ -1,4 +1,4 @@
-class_name PoisonStatus
+class_name FuzzyStatus
 extends StatusEffect
 
 ## Damage per tick.
