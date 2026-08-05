@@ -33,9 +33,9 @@ func _ready() -> void:
 	
 	update_ui()
 
-func _on_timer_timeout():
-	$"../UI/Poison".visible = false
-	print("Timer timeout!")
+#func _on_timer_timeout():
+	#$"../UI/Poison".visible = false
+	#print("Timer timeout!")
 
 func apply_effect_pressed(effect: StatusEffect) -> void:
 	if effect == null:
@@ -49,7 +49,7 @@ func apply_effect_pressed(effect: StatusEffect) -> void:
 		print("Ice effect applied!")
 		ice.visible = true
 		return
-	elif effect == poison_effect:
+	elif effect == fuzzy_effect:
 		print("Fuzzy effect applied!")
 		fuzzy.visible = true
 		return

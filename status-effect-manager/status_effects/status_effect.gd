@@ -33,3 +33,12 @@ extends Resource
 ## Override this method in specific effect resources.
 func on_event(event: String, data: Dictionary, manager: StatusEffectManager) -> void:
 	pass
+	
+func on_apply():
+	pass
+	
+func on_tick():
+	pass
+	
+func on_remove():
+	pass

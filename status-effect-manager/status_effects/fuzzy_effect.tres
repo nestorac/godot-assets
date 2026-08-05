@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cudiy72fqmqwu"]
+
+[ext_resource type="Texture2D" uid="uid://ct5aysdpruvw7" path="res://status_effects/icons/fuzzy.svg" id="1_f8ic3"]
+[ext_resource type="Script" uid="uid://codwjjdg2vdx8" path="res://status_effects/status_effect.gd" id="2_6iujm"]
+
+[resource]
+script = ExtResource("2_6iujm")
+effect_name = "Fuzzy"
+description = "Receive Fuzzy status."
+icon = ExtResource("1_f8ic3")
+duration = 10.0
+stackable = true
+max_stacks = -1
+tags = Array[String](["poison", "dot"])
+metadata/_custom_type_script = "uid://codwjjdg2vdx8"
