@@ -27,9 +27,9 @@ func _ready() -> void:
 	print("=== Game Started ===")
 	
 	# En _ready o al conectar señales
-	apply_poison_button.pressed.connect(func(): apply_effect_pressed(poison_effect))
-	apply_ice_button.pressed.connect(func(): apply_effect_pressed(ice_effect))
-	apply_fuzzy_button.pressed.connect(func(): apply_effect_pressed(fuzzy_effect))
+	#apply_poison_button.pressed.connect(func(): apply_effect_pressed(poison_effect))
+	#apply_ice_button.pressed.connect(func(): apply_effect_pressed(ice_effect))
+	#apply_fuzzy_button.pressed.connect(func(): apply_effect_pressed(fuzzy_effect))
 	
 	update_ui()
 
@@ -65,4 +65,4 @@ func update_ui() -> void:
 		var duration_text = "Permanent" if effect.duration < 0 else "%.1f sec" % instance.remaining_duration
 		text += "- %s (x%d) - %s\n" % [effect.effect_name, instance.stacks, duration_text]
 	
-	active_effects_label.text = text
+#	active_effects_label.text = text
