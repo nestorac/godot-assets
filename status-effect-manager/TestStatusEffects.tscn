@@ -12,6 +12,14 @@
 [ext_resource type="Script" uid="uid://b0g1suyv1q6au" path="res://ice.gd" id="8_iad3b"]
 [ext_resource type="Script" uid="uid://0wifx67nolej" path="res://fuzzy.gd" id="10_6ina1"]
 [ext_resource type="Texture2D" uid="uid://ct5aysdpruvw7" path="res://status_effects/icons/fuzzy.svg" id="10_tu7iv"]
+[ext_resource type="PackedScene" uid="uid://calesmb4txfsb" path="res://character/Monster_rig.glb" id="13_thby0"]
+[ext_resource type="PackedScene" uid="uid://g608551sa800" path="res://character/Wizard.glb" id="14_7vx14"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bygdv"]
+size = Vector3(1, 1.0877686, 0.66400146)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oo8xb"]
+size = Vector3(1, 1.9047241, 1.1337891)
 
 [node name="TestStatusEffects" type="Node2D" unique_id=2075915525]
 script = ExtResource("1_1uj6j")
@@ -101,5 +109,24 @@ texture = ExtResource("10_tu7iv")
 script = ExtResource("10_6ina1")
 
 [node name="Timer" type="Timer" parent="." unique_id=450557181]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1844403973]
+transform = Transform3D(-0.9999445, 0, -0.010536087, 0, 1, 0, 0.010536087, 0, -0.9999445, 0, 0, 1.0884347)
+
+[node name="Wizard" parent="CharacterBody3D" unique_id=747271763 instance=ExtResource("14_7vx14")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=289335340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5630078, 0.062408447)
+shape = SubResource("BoxShape3D_bygdv")
+
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="." unique_id=1800239908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7310728, -0.8920431)
+
+[node name="Monster" parent="CharacterBody3D2" unique_id=1302159745 instance=ExtResource("13_thby0")]
+transform = Transform3D(0.9993628, 0, -0.035691693, 0, 1, 0, 0.035691693, 0, 0.9993628, -0.024478674, -0.72436553, -0.11388397)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2" unique_id=610033798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22817993, -0.06018758)
+shape = SubResource("BoxShape3D_oo8xb")
 
 [connection signal="timeout" from="Timer" to="Character" method="_on_timer_timeout"]
