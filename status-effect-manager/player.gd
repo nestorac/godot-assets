@@ -5,6 +5,8 @@ extends CharacterBody3D
 @export var mouse_sensitivity: float = 0.003
 @onready var camera_pivot: Node3D = $CameraPivot
 
+@onready var camera: Camera3D = $CameraPivot/Camera3D
+
 @export var spell_scene: PackedScene
 @export var spell_spawn_point: Marker3D   # Drag a Marker3D here (place it in front of the hand)
 
@@ -70,8 +72,19 @@ func cast_spell() -> void:
 	var spell = spell_scene.instantiate()
 	get_tree().current_scene.add_child(spell)
 	
-	if spell_spawn_point:
-		spell.global_position = spell_spawn_point.global_position
-		spell.global_basis = spell_spawn_point.global_basis
-	else:
-		spell.global_position = global_position + Vector3(0, 1.4, 0) - global_transform.basis.z * 1.5
+	# Camera forward, but only on the ground plane
+	var forward: Vector3 = -camera.global_transform.basis.z
+	forward.y = 0.0
+	if forward.length_squared() < 0.0001:
+		forward = -global_transform.basis.z
+		forward.y = 0.0
+	forward = forward.normalized()
+
+	var origin := spell_spawn_point.global_position if spell_spawn_point else global_position + Vector3(0, 1.2, 0)
+
+	spell.global_position = origin
+	spell.look_at(origin + forward, Vector3.UP)
+
+	# Optional: pass the direction if your spell script uses it
+	if spell.has_method("set_direction"):
+		spell.set_direction(forward)

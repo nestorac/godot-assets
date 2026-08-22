@@ -1,8 +1,8 @@
 extends Node3D
 
-@onready var poison_img = $UI/Poison
-@onready var ice_img = $UI/Ice
-@onready var fuzzy_img = $UI/Fuzzy
+# @onready var poison_img = $UI/Poison
+# @onready var ice_img = $UI/Ice
+# @onready var fuzzy_img = $UI/Fuzzy
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

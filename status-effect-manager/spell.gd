@@ -1,17 +1,23 @@
 extends Node3D
 
 @export var speed: float = 15.0
-@export var lifetime: float = 2.0
+@export var lifetime: float = 2.5
 
-func _ready():
-	# Optional: make it grow when spawned
-	scale = Vector3.ZERO
-	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector3.ONE, 0.15).set_trans(Tween.TRANS_BACK)
+var direction: Vector3 = Vector3.FORWARD
 
-	# Destroy after time
-	await get_tree().create_timer(lifetime).timeout
-	queue_free()
+func set_direction(dir: Vector3) -> void:
+	direction = dir
+	direction.y = 0.0
+	direction = direction.normalized()
 
-func _physics_process(delta):
-	position += -transform.basis.z * speed * delta
+func _ready() -> void:
+	# If you didn't call set_direction, use current facing, flattened
+	if direction == Vector3.FORWARD:
+		direction = -global_transform.basis.z
+		direction.y = 0.0
+		direction = direction.normalized()
+
+	get_tree().create_timer(lifetime).timeout.connect(queue_free)
+
+func _physics_process(delta: float) -> void:
+	global_position += direction * speed * delta

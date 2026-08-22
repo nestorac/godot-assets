@@ -2,10 +2,10 @@
 extends Node
 
 @onready var status_manager: StatusEffectManager = $StatusEffectManager
-@onready var active_effects_label: Label = $"../UI/ActiveEffectsLabel"
-@onready var apply_poison_button: Button = $"../UI/ApplyPoisonButton"
-@onready var apply_ice_button: Button = $"../UI/ApplyIceButton"
-@onready var apply_fuzzy_button: Button = $"../UI/ApplyFuzzyButton"
+# @onready var active_effects_label: Label = $"../UI/ActiveEffectsLabel"
+# @onready var apply_poison_button: Button = $"../UI/ApplyPoisonButton"
+# @onready var apply_ice_button: Button = $"../UI/ApplyIceButton"
+# @onready var apply_fuzzy_button: Button = $"../UI/ApplyFuzzyButton"
 @onready var timer: Timer = $"../Timer"
 
 @onready var poison: Sprite2D = $"../UI/Poison"

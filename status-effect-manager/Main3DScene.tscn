@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cudiy72fqmqwu" path="res://status_effects/fuzzy_effect.tres" id="5_rt3mc"]
 [ext_resource type="Script" uid="uid://ca4v6h15c6o6b" path="res://status_effects/status_effect_manager.gd" id="6_53akh"]
 [ext_resource type="PackedScene" uid="uid://c3irpkqm8ttv5" path="res://Spell.tscn" id="10_axhd6"]
+[ext_resource type="PackedScene" uid="uid://b5mcnthkmmhwq" path="res://2DMenu.tscn" id="11_pacpr"]
 [ext_resource type="Script" uid="uid://b5ds5uog444bh" path="res://player.gd" id="13_87nvn"]
 [ext_resource type="PackedScene" uid="uid://g608551sa800" path="res://character/Wizard.glb" id="14_2q6v5"]
 [ext_resource type="PackedScene" uid="uid://calesmb4txfsb" path="res://character/Monster_rig.glb" id="15_q47io"]
@@ -145,5 +146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029529572, -0.35498047, -0.
 mesh = SubResource("BoxMesh_87gnt")
 
 [node name="Spell" parent="." unique_id=1777001333 instance=ExtResource("10_axhd6")]
+
+[node name="2DMenu" parent="." unique_id=2075915525 instance=ExtResource("11_pacpr")]
 
 [connection signal="timeout" from="Timer" to="Character" method="_on_timer_timeout"]
