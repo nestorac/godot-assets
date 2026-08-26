@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://b5mcnthkmmhwq"]
 
+[ext_resource type="Script" uid="uid://batu547dedlp" path="res://combat_menu.gd" id="1_rba6g"]
+
 [node name="UI" type="Node2D" unique_id=2075915525]
 
 [node name="CombatMenu" type="CanvasLayer" parent="." unique_id=845423279]
+script = ExtResource("1_rba6g")
 
 [node name="Panel" type="Panel" parent="CombatMenu" unique_id=1994593522]
 offset_right = 40.0

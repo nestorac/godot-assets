@@ -65,6 +65,9 @@ script = ExtResource("6_53akh")
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1844403973]
 transform = Transform3D(-0.9999445, 0, -0.010536087, 0, 1, 0, 0.010536087, 0, -0.9999445, 0, 0, 1.0884347)
 script = ExtResource("13_87nvn")
+speed = null
+jump_velocity = null
+mouse_sensitivity = null
 spell_scene = ExtResource("10_axhd6")
 
 [node name="Wizard" parent="Player" unique_id=747271763 instance=ExtResource("14_2q6v5")]

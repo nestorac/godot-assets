@@ -5,6 +5,9 @@ extends CharacterBody3D
 @export var mouse_sensitivity: float = 0.003
 @onready var camera_pivot: Node3D = $CameraPivot
 
+# On Wizard or a CombatController
+@onready var combat_menu: CanvasLayer = $"../CombatMenu"
+
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 
 @export var spell_scene: PackedScene
@@ -14,6 +17,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	combat_menu.action_selected.connect(_on_action_selected)
 
 func _physics_process(delta: float) -> void:
 	# Gravedad
@@ -32,7 +36,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, speed)if event.is_action_pressed("open_combat_menu"):  # e.g. Tab or R
+		if combat_menu.visible:
+			combat_menu.close_menu()
+		else:
+			combat_menu.open_menu()
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
@@ -60,6 +68,11 @@ func _input(event: InputEvent) -> void:
 			deg_to_rad(-80.0),
 			deg_to_rad(80.0)
 		)
+	if event.is_action_pressed("open_combat_menu"):  # e.g. Tab or R
+		if combat_menu.visible:
+			combat_menu.close_menu()
+		else:
+			combat_menu.open_menu()
 
 func cast_spell() -> void:
 	print("cast_spell() was called")
@@ -88,3 +101,20 @@ func cast_spell() -> void:
 	# Optional: pass the direction if your spell script uses it
 	if spell.has_method("set_direction"):
 		spell.set_direction(forward)
+
+func _on_action_selected(action: CombatAction) -> void:
+	match action.category:
+		CombatAction.Category.SPELL:
+			cast_spell_from_action(action)
+		CombatAction.Category.ATTACK:
+			do_attack(action)
+		CombatAction.Category.DEFENSE:
+			do_defend(action)
+
+func cast_spell_from_action(action: CombatAction) -> void:
+	if action.spell_scene == null:
+		return
+	# same spawn logic you already use for Fireball
+	var spell = action.spell_scene.instantiate()
+	get_tree().current_scene.add_child(spell)
+	# set position / horizontal camera direction...
